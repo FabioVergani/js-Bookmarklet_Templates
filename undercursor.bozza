@@ -1,0 +1,36 @@
+javascript:(function(w){'use strict';
+
+
+	function intercept(event){var e=event;e.preventDefault();e.stopPropagation();return e.target;}
+
+
+	function mark(e,n){
+	 var x=intercept(e),s=x.style,o,m=['outline','cursor'];
+	 if(n<1){
+		o=s.memo||null;console.dir(o);
+	 }else{
+		o={outline:'2px solid #5166bb',cursor:'crosshair'};
+		x=s.memo={};
+		m.forEach(function(p){x[p]=s[p]});
+	 };
+	 m.forEach(function(p){s[p]=o[p]});
+	}
+
+
+	function handlers(prefix){
+	 var root=htmlElement, o=handler, f=o.action, s=prefix+'EventListener';
+	 o.key.forEach(function(p){root[s](p,f[p]);});
+	}
+
+
+	var htmlElement=w.document.documentElement,
+	handler={
+	 action:{
+		mouseover:function(e){mark(e,1);},
+		mouseout:function(e){mark(e,0);}
+	 }
+	};
+	handler.key=Object.keys(handler.action);
+	handlers('add');
+
+})(window);
