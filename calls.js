@@ -1,14 +1,17 @@
 javascript:'use strict';(function(w){
  var o=w.fv;
- if(o%20instanceof%20Object && 'run' in o){
-	o.run();
- }else{
-
+ if(!(o%20instanceof%20Object && 'use' in o)){
 	o=w.fv={
 	 calls:0,
-	 run:function(v){console.log(o.calls++);},
+	 run:false,
+	 use:function(v){
+		var o=this;
+		if(o.run===false){
+		 o.run=true;
+		 console.log(o.calls++);
+		};
+	 }
 	};
-	o.run(w);
-
  };
+ o.use(w);
 })(window);
