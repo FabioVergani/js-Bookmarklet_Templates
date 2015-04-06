@@ -4,14 +4,14 @@ javascript:'use strict';(function(w){
 	o=w.fv={
 	 calls:0,
 	 run:false,
-	 use:function(v){
-		var o=this;
-		if(o.run===false){
-		 o.run=true;
-		 console.log(o.calls++);
-		};
+	 use:function(w){
+		var o=this,d=w.document;
+		o.run=true;
+		o.calls++;
+		o.run=false;
+		console.dir(o);
 	 }
 	};
  };
- o.use(w);
+ if(o.run===false){o.use(w);};
 })(window);
