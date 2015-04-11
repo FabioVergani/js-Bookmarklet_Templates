@@ -1,36 +1,59 @@
-javascript:(function(w){'use strict';
+javascript:'use strict';void((function(w){
+
+ function handlers(x,n){
+	var e=o, f=e.action, h=html, s=x+'EventListener';
+	f.events.forEach(function(i){h[s](i,f[i]);});
+	e.run=n;
+ };
+
+ function procss(x,i,c){
+	var e=x,p='classList';
+	e.preventDefault();
+	e.stopPropagation();
+	e=e.target;
+	return p in e?(e[p][i](c),e):0;
+ };
 
 
-	function intercept(event){var e=event;e.preventDefault();e.stopPropagation();return e.target;}
+ var e, o=w.fv, picked=[], k1='undercursor', k2='selectedbyclick', d=w.document, html=d.documentElement;
 
-
-	function mark(e,n){
-	 var x=intercept(e),s=x.style,o,m=['outline','cursor'];
-	 if(n<1){
-		o=s.memo||null;console.dir(o);
-	 }else{
-		o={outline:'2px solid #5166bb',cursor:'crosshair'};
-		x=s.memo={};
-		m.forEach(function(p){x[p]=s[p]});
-	 };
-	 m.forEach(function(p){s[p]=o[p]});
-	}
-
-
-	function handlers(prefix){
-	 var root=htmlElement, o=handler, f=o.action, s=prefix+'EventListener';
-	 o.key.forEach(function(p){root[s](p,f[p]);});
-	}
-
-
-	var htmlElement=w.document.documentElement,
-	handler={
+ if(!(o%20instanceof%20Object && 'use' in o)){
+	o=w.fv={
+	 run:0,
+	 calls:0,
+	 use:function(d){
+		var o=this,play=function(i){
+		 console.log(o.calls++,'%O',picked);
+		 handlers('add',1);
+		};
+		if(d.readyState==='complete'){play(1);}else{var s='DOMContentLoaded',f=function(){d.removeEventListener(s,f);play(2);};d.addEventListener(s,f);};
+	 },
 	 action:{
-		mouseover:function(e){mark(e,1);},
-		mouseout:function(e){mark(e,0);}
+		mouseover:function(x){
+		 procss(x,'add',k1);
+		},
+		mouseout:function(x){
+		 var p,s,e=procss(x,'remove',k1);
+		 if(e!==0){p='class',s=e.getAttribute(p);if(s===''||(/^\s+$/).test(s)){e.removeAttribute(p);};};
+		},
+		click:function(x){
+		 var e=procss(x,'add',k2);
+		 if(e!==0){
+			picked.push(e);
+			handlers('remove',0);
+		 };
+		}
 	 }
 	};
-	handler.key=Object.keys(handler.action);
-	handlers('add');
+	e=o.action;
+	e.events=Object.keys(e);
 
-})(window);
+	e=d.createElement('style');
+	e.innerHTML='.'+k1+':not(.'+k2+'){cursor:crosshair;outline:2px solid #5166bb;}.'+k2+'{cursor:initial;outline:2px outset red;}';
+	d.head.appendChild(e);
+
+	e=null;
+
+ };
+ if(o.run===0){o.use(d);};
+})(window));
