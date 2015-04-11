@@ -1,21 +1,18 @@
 javascript:'use strict';void((function(w){
- var o=w.fv;
+ var o=w.fv,d=w.document;
  if(!(o%20instanceof%20Object && 'use' in o)){
 	o=w.fv={
-	 calls:0,
-	 run:false,
+	 run:0,
 	 use:function(d){
-		var o=this,play=function(i){
-		 console.log(i,666,d,o);alert(i)
-		};
-		o.run=true;
-		if(d.readyState==='complete'){play(1);}else{
-		 var e='DOMContentLoaded',playafter=function(){d.removeEventListener(e,playafter);play(2);};
-		 d.addEventListener(e,playafter);
-		};
+		var o=this,play=function(i){console.log(i,666,d,o);o.run=0;};
+		o.run=1;
+		if(d.readyState==='complete'){play(1);}else{var s='DOMContentLoaded',f=function(){d.removeEventListener(s,f);play(2);};d.addEventListener(s,f);};
 	 }
 	};
+	var e=d.createElement('style');
+	e.innerHTML='.undercursor{cursor:crosshair;outline:2px solid #5166bb;}.undercursor.clicked{cursor:initial;outline-color:red;}';
+	d.head.appendChild(e);
  };
- if(o.run===false){o.use(w.document);};
+ if(o.run===0){o.use(d);};
 })(window));
 //------------
