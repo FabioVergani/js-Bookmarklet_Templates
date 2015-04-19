@@ -12,6 +12,7 @@ javascript:'use strict';void((function(mywindow){
 		 x.run=0;
 		},
 		f=function(n){var ƒ=play;Object.defineProperty(x,'use',{value:ƒ});ƒ(awindow,n);};
+		[x.fn,x.events].forEach(function(e){e.__proto__=null});
 		if(s==='complete'){
 			f(1);
 		}else if(x.run===0){
