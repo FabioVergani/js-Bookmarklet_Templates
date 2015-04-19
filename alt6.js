@@ -1,31 +1,25 @@
-javascript:'use strict';void((function(mywindow){
- var o,w=mywindow,e=w.fv,k1='undercursor',k2='selectedbyclick';
+javascript:'use strict';void((function(thewindow){
+ var o,w=thewindow,e=w.fv,k1='undercursor',k2='selectedbyclick';
  ((typeof(e)==='object' && 'use' in e)?e:(o=Object,o=w.fv=o.preventExtensions(o.create(null,(o={value:0,writable:true},{
 
 	use:{
 	 value:function(awindow){
-		var l,x=o,d=awindow.document,s=d.readyState,
-		play=function(thewindow,i){
-		 var x=thewindow.fv;
-		 x.run=1;
-		 console.log(i);console.dir(x);
-		 x.run=0;
+		var l,ø=o,win=awindow,d=win.document,s=d.readyState,
+		play=function(w,n){
+
+		 console.log(n);
+
 		},
-		f=function(n){var ƒ=play;Object.defineProperty(x,'use',{value:ƒ});ƒ(awindow,n);};
-		[x.fn,x.events].forEach(function(e){e.__proto__=null});
-		if(s==='complete'){
-			f(1);
-		}else if(x.run===0){
-			x.run=1;
-			s='DOMContentLoaded';
-			l=function(){d.removeEventListener(s,l);x.run=0;f(2);};
+		f=function(i){var ƒ=play;Object.defineProperty(ø,'use',{value:ƒ});ƒ(win,i);};
+		[ø.fn,ø.events].forEach(function(e){e.__proto__=null});
+		if(s==='complete'){f(2);}else if(ø.run===0){ø.run=1;s='DOMContentLoaded';
+			l=function(){d.removeEventListener(s,l);ø.run=0;f(1);};
 			d.addEventListener(s,l);
 		};
 	 },
 	 configurable:true,
 	 writable:true
 	},
-
 
 	calls:o,
 	run:o,
@@ -37,5 +31,5 @@ javascript:'use strict';void((function(mywindow){
 	 },o)
 	},
 	events:{value:Object.keys(o)}
- }))))).use(w);
+ }))))).use(w,3);
 })(window));
