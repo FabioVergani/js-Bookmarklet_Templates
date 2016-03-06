@@ -5,8 +5,8 @@ javascript:void(function($){'use strict';
 	o=e[i='requiredmethodId1']||(e[i]=666);
 	o=e[i='requiredmethodId2']||(e[i]=999);
 	return function($){
-	 var w=$;
-	 console.dir(this);
+	 var w=$,ƒ=this;
+	 console.dir(ƒ);
 	}.bind(e);
  })(w,i)))(w);
 }(window));
