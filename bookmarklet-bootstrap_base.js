@@ -1,14 +1,13 @@
 javascript:void(function($){'use strict';
  var w=$,e=w.ƒ||(w.ƒ=(function($){var w=$,o={
-	requiredmethodId1:222
+	//requiredmethodId1:222
  };o.__proto__=null;return o;})(w)),i='functionId';
- (e[i]||(e[i]=(function($){console.log('firstrun');
+ (e[i]||(e[i]=(function($){
 	var w=$,e=w.ƒ,o,i;
-	o=e[i='requiredmethodId1']||(e[i]=666);
-	o=e[i='requiredmethodId2']||(e[i]=999);
+	//o=e[i='requiredmethodId2']||(e[i]=999);
 	return function($){
 	 var w=$;
-	 console.dir(w.ƒ);
+	 //console.dir(w.ƒ);
 	};
  })(w)))(w);
 }(window));
