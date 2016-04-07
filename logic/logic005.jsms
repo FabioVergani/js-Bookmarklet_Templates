@@ -1,19 +1,19 @@
 javascript:void(function(w){'use strict';
- var $=w, o=$, p;
+ var $=w,o=$,p;
  ((o=o[p='framework_id']||(function(o,p){
 
 	var w=o,
 	Call=w.Function.prototype.call,
 	Object=w.Object,
 	Seal=Object.seal,
-	Create=Call.bind(Object.create,null,null);
+	CreateObject=Call.bind(Object.create,null,null);
 
-	return w[p]=Create();
+	return w[p]=CreateObject();
 
  })(o,p))[p='bookmarklet_id']||(o[p]=function(w){
 
-	 var o=w;
-	 console.dir(this);
+	var o=w;
+	console.dir(this);
 
  }.bind(o)))($);
 }(window));
