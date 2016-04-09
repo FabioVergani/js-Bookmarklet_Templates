@@ -1,9 +1,12 @@
 javascript:void(function($){'use strict';
  var w=$,o=w,p;
  ((o=o[p='framework_id']||(function($,id_framework){
+
 	var w=$,
 	d=w.document,
+	dummy=function(){},
 	Call=w.Function.prototype.call,
+	log=(function(x){var e=x;return e?function(){var o=e;o.log.apply(o,arguments);}:dummy;})(w.console),
 
 	at=function(x,s,f,b){var e=x,i=function(o){f(o);e.removeEventListener(s,i);};e.addEventListener(s,i,b===true);},
 
