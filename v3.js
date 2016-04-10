@@ -21,7 +21,7 @@ javascript:void(function($){'use strict';
  })(o,p))[p='id_favlet']||(o=o[p]=function($){
 	var e=this,
 	env=e.ns,
-	f=env[e.fn],
+	fv=env[e.fn],
 	at=env.when,
 	cns=env.cns,
 	log=cns.log,
@@ -32,7 +32,6 @@ javascript:void(function($){'use strict';
 	isReady=function(evt){
 	 var o=evt;
 	 log('isReady',o);
-	 dir(cns);
 	},
 
 	isComplete=function(evt){
@@ -42,18 +41,16 @@ javascript:void(function($){'use strict';
 
 	endvar;
 
-	if(f.locked!==true){
-	 f.locked=true;
+	if(fv.locked!==true){
+	 fv.locked=true;
 	 if(d.readyState==='complete'){
 	  isReady(false);
 	  isComplete(false);
 	 }else{
 		at(w,'DOMContentLoaded',isReady);
-		at(w,'load',isComplete);
-	 };
+		at(w,'load',isComplete);};
 	}else{
 	 log('locked!');
 	};
  }.bind({ns:o,fn:p}),o.locked=false,o))(w);
 }(window));
-
