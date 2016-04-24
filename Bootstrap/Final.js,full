@@ -9,42 +9,45 @@ javascript:void(function($){'use strict';
 	aRawObj=Call.bind(Crea,null,null),
 	aRawObjDescribed=function(k){var p,o=k,f=aRawObj,d=f(),i,e,t=this;for(p in o){i=d[p]=f(t);for(p in (e=o[p])){i[p]=e[p];};};return f(d);}.bind(function(u){var f=Crea,s=Seal,e=aRawObj(),p=true,o=s({value:p,writable:p,enumerable:p,configurable:false});for(p in o){e[p]=f(o)};e[p='value'][p]=u;return s(e);}()),
 
-
 	once=function(o,s,f,b){var e=o,i=function(x){f(x);e.removeEventListener(s,i);};e.addEventListener(s,i,b===true);},
+
 	console=w.console,
 	log=Call.bind(console.log,console),
-	end;
-	return Seal(aRawObjDescribed({
-	 isReady:{
+	sealed=Seal(aRawObjDescribed({
+	 locked:{value:false},
+	 e:{value:null},
+	 a:{
 		writable:false,
-		value:function(evt){log('isReady');}
+		value:function(evt){
+		 var o=sealed;
+		 log('isReady',evt,o);
+
+		}
 	 },
-	 isComplete:{
+	 b:{
 		writable:false,
-		value:function(evt){log('isComplete');}
+		value:function(evt){
+		 var o=sealed;
+		 log('isComplete',evt,o);
+
+
+		 o.locked=false;
+		}
 	 },
-	 go:{
+	 f:{
 		writable:false,
 		value:function($){
-		 var o=this;
+		 var o=sealed;
 		 if(o.locked){
 			log('attendi');
 		 }else{
 			o.locked=true;
-			var w=$,d=w.document,a=o.isReady,b=o.isComplete,f=false;
-			if(d.readyState==='complete'){
-			 a(f);
-			 b(f);
-			}else{
-			 f=once;
-			 f(w,'DOMContentLoaded',a);
-			 f(w,'load',b);
-			};
+			var w=$,d=w.document,a=o.a,b=o.b,f=false;
+			if(d.readyState==='complete'){a(f);b(f);}else{f=once;f(w,'DOMContentLoaded',a);f(w,'load',b);};
 		 };
 		}
-	 },
-	 locked:{value:false}
+	 }
 	}));
-
- })(o))).go(o);
+	return sealed.f;
+ })(o)))(o);
 }(window));
