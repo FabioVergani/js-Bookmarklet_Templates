@@ -24,7 +24,7 @@ void(function($){'use strict';
 		 if(o.locked===false){
 			o.locked=true;
 			f=function(evt){
-			 var w1=evt.currentTarget,d1=w1.document,w2=o.opened,d2, s='about:blank',e=d1.createDocumentFragment().appendChild(d1.documentElement.cloneNode(true));
+			 var x,i,m, w1=evt.currentTarget,d1=w1.document,w2=o.opened,d2, s='about:blank',e=d1.createDocumentFragment().appendChild(d1.documentElement.cloneNode(true));
 			 e.normalize();
 			 if(w2===null||w2.closed){w2=o.opened=on(w1.open(s),'beforeunload',function(){o.opened=null;});};
 			 d2=w2.document;
@@ -33,6 +33,17 @@ void(function($){'use strict';
 			 if(e=d1.documentElement){
 				e=d1.createDocumentFragment().appendChild(e.cloneNode(true));
 				e.normalize();
+
+				m=e.getElementsByTagName('script');
+				console.dir(m);
+
+				i=m.length;
+				while(i--){
+					x=m[i];
+					x.setAttribute('type','disabled-'+(x.type||'script'));
+				};
+
+				console.dir(m);
 
 				d2.appendChild(e);
 			 };
