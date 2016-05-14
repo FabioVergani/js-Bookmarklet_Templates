@@ -1,0 +1,23 @@
+javascript:void(function($){'use strict';
+ const%20o=$,p='uid-x';
+ (o[p]||(o[p]=(function($){
+	const%20w=$,
+	Obj=w.Object,
+	Seal=Obj.seal,
+	Freeze=Obj.freeze,
+	Create=Obj.create,
+	Call=w.Function.prototype.call,
+	aRawObj=Freeze(Call.bind(Create,null,null)),
+	aRawObjDescribed=Freeze(function(k){var p,o=k,f=aRawObj,d=f(),i,e,t=this;for(p in o){i=d[p]=f(t);for(p in (e=o[p])){i[p]=e[p];};};return f(d);}.bind(function(u){var f=Create,s=Seal,e=aRawObj(),p=true,o=s({value:p,writable:p,enumerable:p,configurable:false});for(p in o){e[p]=f(o)};e[p='value'][p]=u;return s(e);}())),
+	on=Freeze(function(o,s,f,b){o.addEventListener(s,f,b===true);}),
+	once=Freeze(function(o,s,f,b){var i=function(x){f(x);o.removeEventListener(s,i);};on(s,i,b);}),
+	console=w.console,
+	log=Freeze(Call.bind(console.log,console)),
+	sealed=Seal(aRawObjDescribed({
+	 locked:{value:false},
+	 opened:{value:null},
+	 go:{value:Freeze(function($){}),writable:false}
+	}));
+	return sealed.go;
+ })(o)))(o);
+}(window));
