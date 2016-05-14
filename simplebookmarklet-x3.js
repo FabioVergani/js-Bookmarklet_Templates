@@ -24,10 +24,11 @@ void(function($){'use strict';
 		if(e!==null){d2.appendChild(e.cloneNode());};
 		e=d2.createDocumentFragment().appendChild(dE);
 
-log(1,this)
+log(1,this);
 
 
 		d2.appendChild(e);
+		w2.focus();
 	 };
 	 o.locked=false;
 	}.bind(sealed));
