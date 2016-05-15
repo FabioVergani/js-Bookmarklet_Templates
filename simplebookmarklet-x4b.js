@@ -16,12 +16,10 @@ void(function($){'use strict';
 	 var e=d1.documentElement;
 	 if(e!==null){
 		e=d1.createDocumentFragment().appendChild(e.cloneNode(true));
-		const dE=e,w2=((e=o.opened)===null||e.closed)?on(on((o.opened=w1.open('about:blank')),'beforeunload',function(){o.opened=null;}),'click',inibit):e,d2=w2.document;
+		const dE=e,w2=((e=o.opened)===null||e.closed)?on(on(on((o.opened=w1.open('about:blank')),'unload',function(){o.opened=null;}),'beforeunload',function(){log('xxxx?');}),'click',inibit):e,d2=w2.document,d2NodeIterator=d2.createNodeIterator(dE,128);
 		while(e=d2.firstChild){d2.removeChild(e);};
 		e=d1.doctype;if(e!==null){d2.appendChild(e.cloneNode());};
-
-
-
+		while(e=d2NodeIterator.nextNode()){e.remove();};
 		e=dE;
 		e.normalize();
 		e=d2.appendChild(e);
