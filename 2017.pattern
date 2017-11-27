@@ -1,0 +1,18 @@
+((w)=>{
+ const p='dom2tree';
+ (w[p]||(w[p]=((w)=>{
+	function on(a,b){remEL(a,b);addEL(a,b)}
+	function at(a,b){on(a,function f(x){b(x);remEL(a,f)})}
+	function f(evt){
+		const d=evt.target,dE=d.documentElement;
+		c.dir(evt);
+		c.dir(dE);
+		//
+		//...
+	}
+	function g(e){c.group(p,++run);f(e);c.groupEnd()}
+	const c=w.console,d=w.document,addEL=w.addEventListener,remEL=w.removeEventListener;
+	let go=false,run=0;
+	return (w)=>{if(go!==true){d.readyState!=='complete'?at('load',g):g({target:d})}}
+ })(w)))(w);
+})(window);
