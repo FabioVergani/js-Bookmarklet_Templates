@@ -1,5 +1,5 @@
 ($=>{
-	($.body2txt||($.body2txt=$=>{
+	($.xxx||($.xxx=$=>{
 		const at=(e,s,x)=>{
 			const f=e.removeEventListener;
 			f(s,x);
