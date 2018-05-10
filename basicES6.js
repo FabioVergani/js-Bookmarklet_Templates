@@ -1,7 +1,7 @@
 (d=>{
 	const ƒ=(evt)=>{
 		const d=evt.target;//w=d.defaultView
-		d.removeEventListener(evt.type,ƒ);
+		if('type' in evt){d.removeEventListener(evt.type,ƒ)};
 		console.log('ƒ');
 	};
 	if(d.readyState!=='complete'){
