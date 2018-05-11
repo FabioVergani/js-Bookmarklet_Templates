@@ -7,11 +7,12 @@
 				go=false;
 				const ƒ=(evt)=>{
 					const d=evt.target,dEC=d.createDocumentFragment().appendChild(d.documentElement.cloneNode(true));
-					console.dir(d);
 					d.removeEventListener('load',ƒ);
+					console.info('loaded!');
+					console.dir(evt);
 					go=true
-				},d=w.document;
-				if(d.readyState!=='complete'){d.addEventListener('load',ƒ)}else{ƒ({target:d})}
+				},d=w.document,dL=d.addEventListener;
+				if(d.readyState!=='complete'){dL('load',ƒ)}else{ƒ({target:d})}
 			}
 		}
 	})()))(o)
