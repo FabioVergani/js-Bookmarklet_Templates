@@ -1,18 +1,21 @@
 (o=>{
 	const p='BookMarkLetUniqueIdentifier';
 	(o[p]||(o[p]=(()=>{
-		let go=true;
+		let Þ=true;
 		return w=>{
-			if(go){
-				go=false;
-				const ƒ=(evt)=>{
-					const d=evt.target,dEC=d.createDocumentFragment().appendChild(d.documentElement.cloneNode(true));
-					d.removeEventListener('load',ƒ);
+			if(Þ){
+				Þ=false;
+				const ƒ=(d)=>{
+					const dEC=d.createDocumentFragment().appendChild(d.documentElement.cloneNode(true));
 					console.info('loaded!');
-					console.dir(evt);
-					go=true
-				},d=w.document,dL=d.addEventListener;
-				if(d.readyState!=='complete'){dL('load',ƒ)}else{ƒ({target:d})}
+					Þ=true
+				},d=w.document;
+				if(d.readyState!=='complete'){
+					const ﬂ=(e)=>{const d=e.target;d.removeEventListener('load',ﬂ);ƒ(d)};
+					w.addEventListener('load',ﬂ)
+				}else{
+					ƒ(d)
+				}
 			}
 		}
 	})()))(o)
