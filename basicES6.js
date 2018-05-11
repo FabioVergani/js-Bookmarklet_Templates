@@ -1,3 +1,24 @@
+(o=>{
+	const p='BookMarkLetUniqueIdentifier';
+	(o[p]||(o[p]=(()=>{
+		let go=true;
+		return w=>{
+			if(go){
+				go=false;
+				const ƒ=(evt)=>{
+					const d=evt.target,dEC=d.createDocumentFragment().appendChild(d.documentElement.cloneNode(true));
+					console.dir(d);
+					d.removeEventListener('load',ƒ);
+					go=true
+				},d=w.document;
+				if(d.readyState!=='complete'){d.addEventListener('load',ƒ)}else{ƒ({target:d})}
+			}
+		}
+	})()))(o)
+})(window);
+
+
+/*
 (d=>{
 	const ƒ=(evt)=>{
 		const d=evt.target;//w=d.defaultView
@@ -12,3 +33,4 @@
 		ƒ({target:d})
 	}
 })(document);
+*/
