@@ -6,12 +6,18 @@
 			if(Þ){
 				Þ=false;
 				const ƒ=(d)=>{
-					const dEC=d.createDocumentFragment().appendChild(d.documentElement.cloneNode(true));
-					console.info('loaded!');
+
+					let n=d.createDocumentFragment().appendChild(d.documentElement.cloneNode(true));
+					const dom= d.createNodeIterator(n,1);
+					do{
+						console.log(n.tagName);
+						n=dom.nextNode();
+					}while(n!==null);
+					
 					Þ=true
 				},d=w.document;
 				if(d.readyState!=='complete'){
-					const ﬂ=(e)=>{const d=e.target;d.removeEventListener('load',ﬂ);ƒ(d)};
+					const ﬂ=e=>{const d=e.target;d.removeEventListener('load',ﬂ);ƒ(d)};
 					w.addEventListener('load',ﬂ)
 				}else{
 					ƒ(d)
