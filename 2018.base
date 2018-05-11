@@ -1,6 +1,12 @@
 (o=>{
 	const p='BookMarkLetUniqueIdentifier';
-	(o[p]||(o[p]=(w=>{
-		console.dir(w);
-	})(o)));
+	(o[p]||(o[p]=(()=>{
+		let go=true;
+		return w=>{
+			if(go){
+				go=false;
+				console.dir(w);
+			}
+		}
+	})()))(o)
 })(window);
