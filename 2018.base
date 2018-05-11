@@ -6,6 +6,7 @@
 			if(go){
 				go=false;
 				console.dir(w);
+				go=true;
 			}
 		}
 	})()))(o)
