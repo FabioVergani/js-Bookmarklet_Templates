@@ -1,0 +1,22 @@
+(o=>{
+	const p='BookMarkLetListImages';
+	(o[p]||(o[p]=(()=>{
+		let k=true;
+		return w=>{
+			if(k){
+				k=false;
+				const f=(d)=>{
+					//console.warn(1);
+					k=true
+				},d=w.document;
+				if(d.readyState!=='complete'){
+					const g=()=>{w.removeEventListener('load',g);f(d)};
+					w.addEventListener('load',g)
+				}else{
+					f(d)
+				}
+			}
+		}
+	})()))(o)
+})(window);
+//console.dir(getEventListeners(window));
