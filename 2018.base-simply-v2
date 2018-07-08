@@ -1,0 +1,18 @@
+(w=>{
+	(w.BookmarkLetId||(w.BookmarkLetId=w=>{
+			const o=w.BookmarkLetId;
+			if(o.k!==1){
+				o.k=1;
+				const d=w.document,f=d=>{
+					//console.dir(d);
+					o.k=0;
+				};
+				if(d.readyState!=='complete'){
+					const g=e=>{w.removeEventListener('load',g);f(e.target)};
+					w.addEventListener('load',g)
+				}else{
+					f(d)
+				}
+			}
+	}))(w)
+})(window);
