@@ -1,22 +1,20 @@
-(o=>{
-	const p='BookMarkLetListImages';
-	(o[p]||(o[p]=(()=>{
+(w=>{
+	(w.BookmarkLetId||(w.BookmarkLetId=(()=>{
 		let k=true;
 		return w=>{
 			if(k){
 				k=false;
-				const f=(d)=>{
-					//console.warn(1);
+				const d=w.document,f=(d)=>{
+					console.dir(d);
 					k=true
-				},d=w.document;
+				};
 				if(d.readyState!=='complete'){
-					const g=()=>{w.removeEventListener('load',g);f(d)};
+					const g=e=>{w.removeEventListener('load',g);f(e.target)};
 					w.addEventListener('load',g)
 				}else{
 					f(d)
 				}
 			}
 		}
-	})()))(o)
+	})()))(w)
 })(window);
-//console.dir(getEventListeners(window));
