@@ -16,3 +16,36 @@
 			}
 	}))(w)
 })(window);
+
+
+/*
+
+better:
+(w=>{
+	(w.BookmarkLetId||(w.BookmarkLetId=(w1=>{
+		let k;
+		return w2=>{
+
+			if(k!==1){//
+				k=1;
+				const d=w2.document,f=d=>{
+					//
+					console.dir(d);
+					k=0;
+				};
+				if(d.readyState!=='complete'){
+					const g=e=>{
+						const d=e.target;
+						d.defaultView.removeEventListener('load',g);
+						f(d)
+					};
+					w2.addEventListener('load',g)
+				}else{
+					f(d)
+				}
+			}
+		}
+	})(w)))(w)
+})(window);
+
+*/
