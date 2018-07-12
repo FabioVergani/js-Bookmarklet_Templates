@@ -1,0 +1,24 @@
+((o,p)=>{
+	(o[p]||(o[p]=(()=>{
+		let k;
+		return w=>{
+			if(k!==1){
+				k=1;
+				const f=d=>{
+					//
+					console.dir(d);
+					k=0;
+				},d=w.document;
+				if(d.readyState!=='complete'){
+					const g=()=>{
+						w.removeEventListener('load',g);
+						f(d)
+					};
+					w.addEventListener('load',g)
+				}else{
+					f(d)
+				}
+			}
+		}
+	})(o)))(o)
+})(window,'BookmarkLetId');
