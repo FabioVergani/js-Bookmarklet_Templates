@@ -9,7 +9,8 @@
 					//
 					console.dir(e);
 					k=0;
-				},d=w.document;if(d.readyState!=='complete'){at(w,'load',f)}else{f({target:d})}
+				},d=w.document;
+				d.readyState!=='complete'?at(w,'load',f):f({target:d})
 			}
 		}
 	})(o)))(o)
