@@ -1,16 +1,24 @@
 ((o,p)=>{
 	(o[p]||(o[p]=((w)=>{
 		let k;
-		const at=(e,s,x)=>{const f=(o)=>{e.removeEventListener(s,f);x(o)};e.addEventListener(s,f)};
+		const once=(e,s,x)=>{
+			const f=(o)=>{
+				e.removeEventListener(s,f);
+				x(o)
+			};
+			e.addEventListener(s,f)
+		};
 		return w=>{
 			if(k!==1){
 				k=1;
-				const f=e=>{
-					//
-					console.dir(e);
+				const d=w.document,f=ready=>{
+
+					//console.dir(ready);
+					//doStuff..
+
 					k=0;
-				},d=w.document;
-				d.readyState!=='complete'?at(w,'load',f):f({target:d})
+				};
+				d.readyState!=='complete'?once(w,'load',f):f({target:d})
 			}
 		}
 	})(o)))(o)
