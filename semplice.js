@@ -1,18 +1,25 @@
-(w=>{
-		let k=true;
-		(w=>{
-			if(k){
-				k=false;
-				const f=(w)=>{
-					console.dir(w);
-					k=true
+((o,p)=>{
+	(o[p]||(o[p]=((w)=>{
+		let k;
+		const at=(e,s,x)=>{
+			const f=e.removeEventListener;
+			f(s,x);
+			e.addEventListener(s,x);
+			return f
+		},
+		once=(e,s,x)=>{const f=o=>{g(s,x);x(o)},g=at(e,s,f)};
+		return w=>{
+			if(k!==1){
+				k=1;
+				const d=w.document,f=loaded=>{
+
+					console.dir(loaded);
+					//doStuff..
+
+					k=0;
 				};
-				if(w.document.readyState!=='complete'){
-					const g=()=>{w.removeEventListener('load',g);f(w)};
-					w.addEventListener('load',g)
-				}else{
-					f(w)
-				}
+				d.readyState!=='complete'?once(w,'load',f):f({target:d})
 			}
-		})(w)
-})(window);
+		}
+	})(o)))(o)
+})(window,'BookmarkLetId');
