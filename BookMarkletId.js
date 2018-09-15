@@ -15,3 +15,26 @@
 		}
 	})(w)))(w)
 })(window);
+
+
+
+/*
+
+(d=>{
+	(d.BookMarkletId||(d.BookMarkletId=(d=>{
+		const once=(e,s,f)=>{const c=o=>{e.removeEventListener(s,c);f(o)};e.addEventListener(s,c)},
+		when=(d,c,i)=>{if(d.readyState!=='complete'){once(d,i!==1?'load':'DOMContentLoaded',c)}else{c({target:d})}};
+		let opened,allow=true;
+		return d=>{
+			if(allow){
+				allow=false;
+				when(d,loaded=>{
+					console.info('event:',loaded);
+					allow=true;
+				},1)
+			}
+		}
+	})(d)))(d)
+})(document);
+
+*/
