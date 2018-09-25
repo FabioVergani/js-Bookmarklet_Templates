@@ -1,0 +1,16 @@
+(w=>{
+	let f='BookMarkletId';
+	if('function'!==typeof(f=w[f])){
+		f=w[f]=w=>{
+			if(allow){
+				allow=false;
+				alert(2);
+				allow=true
+			}
+		};
+		with(f){allow=true}
+	};
+	f(w)
+})(window);
+//console.dir(window.BookMarkletId);
+
