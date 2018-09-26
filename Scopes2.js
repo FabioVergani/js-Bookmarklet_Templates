@@ -1,16 +1,16 @@
-(w=>{
-	const i='BookMarkletId';
-	(w[i]||(w[i]=(w=>{
-		const f=w=>{
+(o=>{
+	let p='BookMarkletId',f=o[p];
+	if('function'!==typeof f){
+		with(f=o[p]=w=>{
 			if(allow){
 				allow=false;
-				alert(2);
+				console.warn(++counts);
 				allow=true
 			}
-		};
-		with(f){allow=true}
-		return f
-	})(w)))(w)
+		}){allow=true;counts=0}
+	};
+	f(o)
 })(window);
+//
+console.dir(window.BookMarkletId);
 
-//console.dir(window.BookMarkletId);
