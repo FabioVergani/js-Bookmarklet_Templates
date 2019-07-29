@@ -1,33 +1,32 @@
-console.clear();
 (w=>{
 	(
-		w.idBookmarklet||(
-			w.idBookmarklet=(
+		w.bookmarklet_id||(
+			w.bookmarklet_id=(
 				w=>{
-					const d=w.document,
-					onceAt=(e,s,f)=>{
-						let x=o=>{
-							e.removeEventListener(s,x);
-							x=null;
-							f(o)
-						};
-						e.addEventListener(s,x)
+					const onceWhen=(e,s,c)=>{
+						const f=()=>{e.removeEventListener(s,g)},g=o=>{f();c(o)};
+						e.addEventListener(s,g);
+						return f
 					},
 					onceReady=(w,f)=>{
 						if('complete'!==w.document.readyState){
-							onceAt(w,'load',f)
+							onceWhen(w,'load',f)
 						}else{
-							f(w)
+							f({currentTarget:w})
 						}
 					};
-					//
-					let canRun=true;
+					let canRunBookmarklet=true;
 					return w=>{
-						if(canRun){
-							canRun=false;
-							onceReady(w,w=>{
+						if(canRunBookmarklet){
+							canRunBookmarklet=false;
+							onceReady(w,eventReady=>{
+								const w=eventReady.currentTarget;
+								console.clear();
+								//console.log(eventReady.type);
+								//console.log('eventReady:%O,currentTarget:%O',eventReady,w);
+								//getSelectionHtml
 								//...
-								canRun=true;
+								canRunBookmarklet=true
 							})
 						}
 					}
